@@ -32,6 +32,8 @@
             this.loginButton = new MetroFramework.Controls.MetroButton();
             this.passwordTextBox = new MetroFramework.Controls.MetroTextBox();
             this.cancelButton = new MetroFramework.Controls.MetroButton();
+            this.progressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
+            this.progressInformation = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // usernameTextBox
@@ -73,11 +75,11 @@
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(134, 23);
             this.loginButton.Style = MetroFramework.MetroColorStyle.Green;
-            this.loginButton.TabIndex = 1;
+            this.loginButton.TabIndex = 2;
             this.loginButton.Text = "Login";
             this.loginButton.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.loginButton.UseSelectable = true;
-            this.loginButton.Click += new System.EventHandler(this.metroButton1_Click);
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // passwordTextBox
             // 
@@ -98,14 +100,14 @@
             this.passwordTextBox.Location = new System.Drawing.Point(23, 140);
             this.passwordTextBox.MaxLength = 32767;
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '\0';
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.passwordTextBox.SelectedText = "";
             this.passwordTextBox.SelectionLength = 0;
             this.passwordTextBox.SelectionStart = 0;
             this.passwordTextBox.Size = new System.Drawing.Size(238, 23);
             this.passwordTextBox.Style = MetroFramework.MetroColorStyle.Green;
-            this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.TabIndex = 1;
             this.passwordTextBox.Text = "Passwort";
             this.passwordTextBox.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.passwordTextBox.UseSelectable = true;
@@ -122,17 +124,50 @@
             this.cancelButton.Text = "Abbrechen";
             this.cancelButton.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.cancelButton.UseSelectable = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // progressSpinner
+            // 
+            this.progressSpinner.Location = new System.Drawing.Point(1, 207);
+            this.progressSpinner.Maximum = 100;
+            this.progressSpinner.Name = "progressSpinner";
+            this.progressSpinner.Size = new System.Drawing.Size(16, 16);
+            this.progressSpinner.Speed = 5F;
+            this.progressSpinner.Style = MetroFramework.MetroColorStyle.Green;
+            this.progressSpinner.TabIndex = 4;
+            this.progressSpinner.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.progressSpinner.UseSelectable = true;
+            this.progressSpinner.Visible = false;
+            this.progressSpinner.Click += new System.EventHandler(this.progressSpinner_Click);
+            // 
+            // progressInformation
+            // 
+            this.progressInformation.Location = new System.Drawing.Point(23, 205);
+            this.progressInformation.Name = "progressInformation";
+            this.progressInformation.Size = new System.Drawing.Size(238, 16);
+            this.progressInformation.Style = MetroFramework.MetroColorStyle.Green;
+            this.progressInformation.TabIndex = 5;
+            this.progressInformation.Text = "Fortschrittsanzeige";
+            this.progressInformation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.progressInformation.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.progressInformation.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 227);
+            this.Controls.Add(this.progressInformation);
+            this.Controls.Add(this.progressSpinner);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.usernameTextBox);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Movable = false;
             this.Name = "Form1";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "CompManager";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -147,6 +182,8 @@
         private MetroFramework.Controls.MetroButton loginButton;
         private MetroFramework.Controls.MetroTextBox passwordTextBox;
         private MetroFramework.Controls.MetroButton cancelButton;
+        private MetroFramework.Controls.MetroProgressSpinner progressSpinner;
+        private MetroFramework.Controls.MetroLabel progressInformation;
     }
 }
 
